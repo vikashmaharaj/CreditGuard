@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CreditGuard ML</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>💳 CreditGuard</h1>
+        <p>
+            Industry-grade credit risk assessment system used to evaluate loan default probability
+            before approval.
+        </p>
+    </div>
+
+    <form action="/predict" method="post">
+
+        <!-- ROW 1 : 4 INPUTS -->
+        <div class="grid grid-4">
+            <input type="number" name="person_age" placeholder="Age" required>
+            <input type="number" name="person_income" placeholder="Annual Income" required>
+            <input type="number" step="0.1" name="person_emp_length" placeholder="Employment Length (Years)" required>
+            <input type="number" name="loan_amnt" placeholder="Loan Amount" required>
+        </div>
+
+        <!-- ROW 2 : 4 INPUTS -->
+        <div class="grid grid-4">
+            <input type="number" step="0.01" name="loan_int_rate" placeholder="Interest Rate (%)" required>
+            <input type="number" step="0.01" name="loan_percent_income" placeholder="Loan % of Income" required>
+            <input type="number" name="cb_person_cred_hist_length" placeholder="Credit History Length" required>
+
+            <select name="person_home_ownership">
+                <option value="">Home Ownership</option>
+                <option value="RENT">Rent</option>
+                <option value="OWN">Own</option>
+                <option value="MORTGAGE">Mortgage</option>
+            </select>
+        </div>
+
+        <!-- ROW 3 : 3 INPUTS -->
+        <div class="grid grid-3">
+            <select name="loan_intent">
+                <option value="">Loan Purpose</option>
+                <option value="EDUCATION">Education</option>
+                <option value="MEDICAL">Medical</option>
+                <option value="PERSONAL">Personal</option>
+                <option value="VENTURE">Venture</option>
+                <option value="DEBTCONSOLIDATION">Debt Consolidation</option>
+                <option value="HOMEIMPROVEMENT">Home Improvement</option>
+            </select>
+
+            <select name="loan_grade">
+                <option value="">Loan Grade</option>
+                <option>A</option><option>B</option><option>C</option>
+                <option>D</option><option>E</option><option>F</option><option>G</option>
+            </select>
+
+            <select name="cb_person_default_on_file">
+                <option value="">Past Default?</option>
+                <option value="N">No</option>
+                <option value="Y">Yes</option>
+            </select>
+        </div>
+
+        <button type="submit">Evaluate Credit Risk</button>
+    </form>
+
+    <div class="footer">
+        CreditGuard ML • Logistic Regression • Regulatory-Friendly AI
+    </div>
+
+</div>
+
+</body>
+</html>

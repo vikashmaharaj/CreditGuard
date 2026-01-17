@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Risk Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>📊 Credit Evaluation Result</h1>
+        <p>Automated risk assessment based on financial & credit attributes</p>
+    </div>
+
+    <div class="result">
+        {{ result }}
+    </div>
+
+    <a href="/">← Evaluate Another Applicant</a>
+
+    <div class="footer">
+        This prediction is AI-assisted and should be used alongside human review.
+    </div>
+
+</div>
+
+</body>
+</html>
